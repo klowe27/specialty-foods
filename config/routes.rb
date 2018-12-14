@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :main
+  root 'main#index'
+  resources :main, only: [:index]
   resources :products do
     resources :reviews
   end
