@@ -34,4 +34,9 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to list_path(@review.list)
   end
+
+  private
+  def review_params
+   params.require(:review).permit(:author, :content_body, :rating)
+  end
 end
