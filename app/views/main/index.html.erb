@@ -1,11 +1,64 @@
 <h2>Who are we?</h2>
 <p>Mario's Specialty Foods is a premium supplier of products from across the globe.</p>
 
-<h2>New arrivals</h2>
-<!-- three newest products -->
+<h2 class="space-above">New arrivals</h2>
 
-<h2>Most reviewed</h2>
-<!-- 6 most reviewed products-->
+<% if @most_recent_products.any? %>
+<div class="all-products space-above">
+  <% @most_recent_products.each do |product| %>
+    <div class="product">
 
-<h2>Buy local</h2>
-<!-- all products made in USA-->
+    <h2><%= link_to product.name, product_path(product) %></h2>
+    <p><strong>Country of origin:</strong> <%= product.country_origin %></p>
+      <p><strong>Price:</strong> <%= number_to_currency product.cost %></p>
+      <p><strong>Total reviews:</strong> <%= product.reviews.length %></p>
+      <p><%= link_to "View Product", product_path(product) %></p>
+
+    </div>
+  <% end %>
+</div>
+<% else %>
+<p>There are no products to display</p>
+
+<% end %>
+
+
+<h2 class="space-above">Most reviewed</h2>
+<% if @most_reviews.any? %>
+<div class="all-products space-above">
+  <% @most_reviews.each do |product| %>
+    <div class="product">
+
+    <h2><%= link_to product.name, product_path(product) %></h2>
+    <p><strong>Country of origin:</strong> <%= product.country_origin %></p>
+      <p><strong>Price:</strong> <%= number_to_currency product.cost %></p>
+      <p><strong>Total reviews:</strong> <%= product.reviews.length %></p>
+      <p><%= link_to "View Product", product_path(product) %></p>
+
+    </div>
+  <% end %>
+</div>
+<% else %>
+<p>There are no products to display</p>
+
+<% end %>
+
+<h2 class="space-above">Products made in the USA</h2>
+<% if @usa_made_products.any? %>
+<div class="all-products space-above">
+  <% @usa_made_products.each do |product| %>
+    <div class="product">
+
+    <h2><%= link_to product.name, product_path(product) %></h2>
+    <p><strong>Country of origin:</strong> <%= product.country_origin %></p>
+      <p><strong>Price:</strong> <%= number_to_currency product.cost %></p>
+      <p><strong>Total reviews:</strong> <%= product.reviews.length %></p>
+      <p><%= link_to "View Product", product_path(product) %></p>
+
+    </div>
+  <% end %>
+</div>
+<% else %>
+<p>There are no products to display</p>
+
+<% end %>
