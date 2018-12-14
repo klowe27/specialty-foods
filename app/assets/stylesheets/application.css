@@ -1,3 +1,7 @@
+body {
+  background-color: #F8F8F8;
+}
+
 .all-products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -53,4 +57,10 @@ h2  {
 
 .submit-button:hover {
   background-color: #FF6347;
+}
+
+.review {
+  background-color: #F0F0F0;
+  margin: 10px;
+  padding: 20px;
 }

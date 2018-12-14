@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
+
   def index
     @products = Product.all
   end
 
   def show
-   @product = Product.new(product_params)  end
+    @product = Product.find(params[:id])
+  end
 
   def new
    @product = Product.new
@@ -42,4 +44,5 @@ class ProductsController < ApplicationController
   def product_params
    params.require(:product).permit(:name, :cost, :country_origin)
   end
+
 end
