@@ -4,7 +4,9 @@ class Review < ActiveRecord::Base
   validates :author, :presence => true
   validates :content_body, :presence => true
   validates :content_body, length: { minimum: 50, maximum: 250, wrong_length: "Must be between 50 to 250 characters." }
-
-  validates :rating, numericality: { greater_than: 0, less_than: 6, message: "Must be a number between 1-5." }
+  validates :rating, :presence => true
+  validates :rating, numericality: { integer: true}
+  validates :rating, numericality: { greater_than: 0}
+  validates :rating, numericality: {less_than: 6}
 
 end
