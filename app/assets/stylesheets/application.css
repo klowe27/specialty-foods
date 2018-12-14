@@ -43,3 +43,14 @@ h2  {
 .space-above {
   margin-top: 20px;
 }
+
+.submit-button {
+  background-color: #73C373;
+  border-radius: 2px;
+  border: none;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #FF6347;
+}
